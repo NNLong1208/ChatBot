@@ -22,8 +22,8 @@ class Model:
         return result
 
 
-bot = Model()
 if __name__ == "__main__":
+    bot = Model()
     start = time.time()
     res = bot.run("Hello")
     print(time.time() - start)
