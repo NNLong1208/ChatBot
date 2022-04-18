@@ -1,0 +1,44 @@
+intents:
+ - give_name
+ - greet
+ - thank
+ - bye
+ - ask_func_list
+ - ask_name
+ - utter_greet_with_name
+
+entities:
+ - cust_sex
+ - cust_name
+
+slots:
+  cust_sex:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: cust_sex
+  cust_name:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: cust_name
+
+# Những câu nói con bot có thể nói, đặt tên theo format ulter_<tên intent> có thể có nhiều hơn 1 câu
+responses:
+ utter_greet_with_name:
+  - text: "Kính chào {cust_sex} {cust_name}. ABC Shop có thể giúp gì được {cust_sex} {cust_name} ạ?"
+ utter_greet:
+  - text: "Kính chào Quý khách!"
+ utter_bye:
+  - text: "Kính chào tạm biệt và mong sớm gặp lại quý khách!"
+  - text: "Kính chào tạm biệt và chúc quý khách một ngày tốt lành!"
+ utter_thank:
+  - text: "Cảm ơn quý khách quá khen ah!"
+  - text: "Dạ không có gì, đó là trách nhiệm của em mà!"
+ utter_func_list:
+  - text: "Em có thể làm được rất nhiều thứ: hát, đọc thơ, đọc chuyện...nhưng giờ em chỉ chat thôi!"
+ utter_ask_name:
+  - text: "Em họ Bank, tên Bot! Người ta hay gọi em là Bank Bot thông minh xinh đẹp giỏi giang nhất vũ trụ ạ! Quý khách cần trợ giúp gì ạ?"
+  - text: "Dạ thưa. Tên Tiếng Việt của em là Trợ lý ảo Ngân hàng nhưng em thích gọi bằng tên Tiếng Anh là Bank Bot cho nó Tây!"
+ utter_unclear:
+  - text: "Thưa quý khách, hiện tại tôi chưa hiểu được yêu cầu của Quý khách. "

@@ -1,0 +1,55 @@
+version: "3.1"
+#nhưng đoạn hội thoại, intent: <tên_inten trong nlu.yml> action : <tên ulter trong domain.yml> luôn luôn bắt đầu bằng intent nha
+stories:
+- story: chao_hoi_ten
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: give_name
+  - action: utter_greet_with_name
+  - intent: ask_name
+  - action: utter_ask_name
+  - intent :  bye
+  - action : utter_bye
+- story: chao_hoi
+  steps:
+  - intent : greet
+  - action : utter_greet
+  - intent : ask_name
+  - action : utter_ask_name
+  - intent :  ask_func_list
+  - action : utter_func_list
+  - intent :  bye
+  - action : utter_bye
+  
+- story: chao_chucnang_hoi
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_func_list
+  - action: utter_func_list
+  - intent: bye
+  - action: utter_bye
+
+- story: chao_ten_chao
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_name
+  - action: utter_ask_name
+  - intent: bye
+  - action: utter_bye
+
+
+- story: ten_chuc_nang
+  steps:
+  - intent: ask_name
+  - action: utter_ask_name
+  - intent: ask_func_list
+  - action: utter_func_list
+
+
+- story: cam_on
+  steps:
+  - intent: thank
+  - action: utter_thank
