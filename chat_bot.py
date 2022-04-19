@@ -2,7 +2,6 @@ import asyncio
 import time
 
 from rasa.core.agent import Agent
-from rasa.shared.utils.io import json_to_string
 
 
 class Model:
@@ -11,19 +10,33 @@ class Model:
         self.agent = Agent.load(model_path)
         print("NLU model loaded")
 
-    def message(self, message: str) -> str:
+    def predict(self, message: str) -> str:
         message = message.strip()
         result = asyncio.run(self.agent.parse_message(message))
-        return json_to_string(result)
+        return result
 
     def run(self, message: str) -> str:
         message = message.strip()
-        result = asyncio.run(self.agent.handle_text(message))
-        return result
+        results = asyncio.run(self.agent.handle_text(message))
+        output = self.predict(message)
+        print(output)
+        for result in results:
+            result['text'] = self.format_output(result['text'], output)
+        return results
+
+    @staticmethod
+    def format_output(text, output):
+        if output['intent']['name'] == 'ask_product':
+            for entity in output['entities']:
+                text = text.replace(entity['entity'], entity['value'])
+        return text
 
 
 if __name__ == "__main__":
     bot = Model()
-    start = time.time()
-    res = bot.run("Hello")
-    print(time.time() - start)
+    while True:
+        text = input()
+        start = time.time()
+        res = bot.run(text)
+        print(res)
+        print(time.time() - start)
