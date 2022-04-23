@@ -6,7 +6,6 @@ from rasa.core.agent import Agent
 
 
 class Model:
-
     def __init__(self, model_path=r"./models/20220418-210445-burning-borzoi.tar.gz") -> None:
         self.agent = Agent.load(model_path)
         f = open('./config.json', encoding='utf-8')
@@ -39,7 +38,7 @@ class Model:
             try:
                 start = text.index("<")
                 end = text.index(">")
-                key = text[start:end+1]
+                key = text[start:end+1].lower()
                 text = text.replace(key, self.config['domain'] + self.config[key])
             except Exception:
                 text = "Xin lỗi bạn, mình không tìm thấy sản phẩm. Mình giới thiệu bạn sản phẩm này nè {}".format(self.config['domain'] + self.config[random.choice(keys)])
