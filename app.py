@@ -2,11 +2,9 @@ import flask
 from flask import request, jsonify
 import threading
 from chat_bot import *
-from flask_cors import CORS
 
 app = flask.Flask(__name__)
 app.config["DEBUG"] = False
-CORS(app)
 
 def get_model():
     global bot
@@ -22,7 +20,6 @@ def api():
     print(bot_answer)
     result = {'text': bot_answer[0]['text']}
     return jsonify(result)
-
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
