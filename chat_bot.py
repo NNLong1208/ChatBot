@@ -38,7 +38,9 @@ class Model:
             try:
                 start = text.index("<")
                 end = text.index(">")
-                key = text[start:end+1].lower()
+                key = text[start+1:end].lower()
+                key = key.replace(" ", "")
+                print(key)
                 text = text.replace(key, self.config['domain'] + self.config[key])
             except Exception:
                 text = "Xin lỗi bạn, mình không tìm thấy sản phẩm. Mình giới thiệu bạn sản phẩm này nè {}".format(self.config['domain'] + self.config[random.choice(keys)])
