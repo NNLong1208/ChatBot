@@ -1,20 +1,20 @@
 {
  "domain" : "http://0.0.0.0:8080/",
- "dell/product": "?brand=dell",
- "asus/product": "?brand=asus",
- "apple/product": "?brand=apple",
- "lenovo/product": "?brand=lenovo",
- "hp/product": "?brand=hp",
+ "dell/product": "product?brand=dell",
+ "asus/product": "product?brand=asus",
+ "apple/product": "product?brand=apple",
+ "lenovo/product": "product?brand=lenovo",
+ "hp/product": "product?brand=hp",
 
- "brand/laptop" : "?category=1",
- "brand/máy tínhxáchtay" : "?category=1",
- "brand/chuột" : "?catgory=2",
- "brand/bànphím" : "?category=3",
- "brand/tainghe" : "?catgory=4",
- "brand/mànhình" : "?category=5",
+ "brand/laptop" : "product?category=1",
+ "brand/máy tínhxáchtay" : "product?category=1",
+ "brand/chuột" : "product?catgory=2",
+ "brand/bànphím" : "product?category=3",
+ "brand/tainghe" : "product?catgory=4",
+ "brand/mànhình" : "product?category=5",
 
- "dell/laptop": "?brand=dell&category=1",
- "asus/laptop": "?brand=asus&category=1",
- "lenovo/laptop": "?brand=asus&category=1",
- "hp/laptop": "?brand=hp&category=1"
+ "dell/laptop": "product?brand=dell&category=1",
+ "asus/laptop": "product?brand=asus&category=1",
+ "lenovo/laptop": "product?brand=asus&category=1",
+ "hp/laptop": "product?brand=hp&category=1"
 }
