@@ -1,7 +1,8 @@
 import asyncio
-import time
 import json
 import random
+import time
+
 from rasa.core.agent import Agent
 
 
@@ -38,22 +39,27 @@ class Model:
             try:
                 start = text.index("<")
                 end = text.index(">")
-                key = text[start+1:end].lower()
+                key = text[start + 1:end].lower()
                 key = key.replace(" ", "")
-                print(key)
-                text = text.replace(key, self.config['domain'] + self.config[key])
+                herf = 'a href="{}">{}</a'.format(self.config['domain'] + self.config[key],
+                                                  self.config['domain'] + self.config[key])
+                text = text.replace(key, herf)
+
             except Exception:
-                text = "Xin lỗi bạn, mình không tìm thấy sản phẩm. Mình giới thiệu bạn sản phẩm này nè {}".format(self.config['domain'] + self.config[random.choice(keys)])
-            text = text.replace("<", "")
-            text = text.replace(">", "")
+                key = random.choice(keys)
+                herf = '<a href="{}">{}</a>'.format(self.config['domain'] + self.config[key],
+                                                    self.config['domain'] + self.config[key])
+                text = "Xin lỗi bạn, mình không tìm thấy sản phẩm. Mình giới thiệu bạn sản phẩm này nè {}".format(herf)
+            # text = text.replace("<", "")
+            # text = text.replace(">", "")
         return text
 
 
 if __name__ == "__main__":
     bot = Model()
     while True:
-        text = input()
-        start = time.time()
-        res = bot.run(text)
+        input_text = input()
+        start_time = time.time()
+        res = bot.run(input_text)
         print(res)
-        print(time.time() - start)
+        print(time.time() - start_time)
