@@ -1,55 +1,223 @@
 version: "3.1"
 #nhưng đoạn hội thoại, intent: <tên_inten trong nlu.yml> action : <tên ulter trong domain.yml> luôn luôn bắt đầu bằng intent nha
 stories:
-- story: chao_hoi_ten
+- story: sample0
   steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: give_name
-  - action: utter_greet_with_name
+  - intent: ask_payment
+  - action: utter_ask_payment
+  - intent: ask_payment
+  - action: utter_ask_payment
+  - intent: ask_shipping
+  - action: utter_ask_shipping
+  - intent: complain
+  - action: utter_complain
+
+- story: sample1
+  steps:
   - intent: ask_name
   - action: utter_ask_name
-  - intent :  bye
-  - action : utter_bye
-- story: chao_hoi
-  steps:
-  - intent : greet
-  - action : utter_greet
-  - intent : ask_name
-  - action : utter_ask_name
-  - intent :  ask_func_list
-  - action : utter_func_list
-  - intent :  bye
-  - action : utter_bye
-  
-- story: chao_chucnang_hoi
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: ask_func_list
-  - action: utter_func_list
-  - intent: bye
-  - action: utter_bye
+  - intent: complain
+  - action: utter_complain
 
-- story: chao_ten_chao
+- story: sample2
   steps:
-  - intent: greet
-  - action: utter_greet
+  - intent: ask_func_list
+  - action: utter_ask_func_list
+  - intent: complain
+  - action: utter_complain
+
+- story: sample3
+  steps:
+  - intent: ask_shipping
+  - action: utter_ask_shipping
   - intent: ask_name
   - action: utter_ask_name
   - intent: bye
   - action: utter_bye
 
-
-- story: ten_chuc_nang
+- story: sample4
   steps:
-  - intent: ask_name
-  - action: utter_ask_name
   - intent: ask_func_list
-  - action: utter_func_list
+  - action: utter_ask_func_list
+  - intent: ask_shipping
+  - action: utter_ask_shipping
+  - intent: ask_payment
+  - action: utter_ask_payment
+  - intent: ask_func_list
+  - action: utter_ask_func_list
+  - intent: complain
+  - action: utter_complain
 
-
-- story: cam_on
+- story: sample5
   steps:
+  - intent: ask_payment
+  - action: utter_ask_payment
+  - intent: ask_shipping
+  - action: utter_ask_shipping
+
+- story: sample6
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: greet
+  - action: utter_greet
+
+- story: sample7
+  steps:
+  - intent: ask_func_list
+  - action: utter_ask_func_list
+  - intent: ask_payment
+  - action: utter_ask_payment
   - intent: thank
   - action: utter_thank
+
+- story: sample8
+  steps:
+  - intent: ask_buying
+  - action: utter_ask_buying
+  - intent: complain
+  - action: utter_complain
+
+- story: sample9
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_product
+  - action: utter_ask_product
+  - intent: ask_shipping
+  - action: utter_ask_shipping
+
+- story: sample10
+  steps:
+  - intent: ask_shipping
+  - action: utter_ask_shipping
+  - intent: complain
+  - action: utter_complain
+
+- story: sample11
+  steps:
+  - intent: ask_name
+  - action: utter_ask_name
+  - intent: ask_shipping
+  - action: utter_ask_shipping
+  - intent: ask_name
+  - action: utter_ask_name
+  - intent: greet
+  - action: utter_greet
+  - intent: thank
+  - action: utter_thank
+
+- story: sample12
+  steps:
+  - intent: complain
+  - action: utter_complain
+
+- story: sample13
+  steps:
+  - intent: ask_payment
+  - action: utter_ask_payment
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_name
+  - action: utter_ask_name
+  - intent: ask_func_list
+  - action: utter_ask_func_list
+  - intent: ask_func_list
+  - action: utter_ask_func_list
+  - intent: ask_func_list
+  - action: utter_ask_func_list
+  - intent: ask_name
+  - action: utter_ask_name
+
+- story: sample14
+  steps:
+  - intent: ask_payment
+  - action: utter_ask_payment
+  - intent: greet
+  - action: utter_greet
+
+- story: sample15
+  steps:
+  - intent: complain
+  - action: utter_complain
+
+- story: sample16
+  steps:
+  - intent: ask_product
+  - action: utter_ask_product
+  - intent: ask_product
+  - action: utter_ask_product
+  - intent: thank
+  - action: utter_thank
+
+- story: sample17
+  steps:
+  - intent: ask_product
+  - action: utter_ask_product
+  - intent: ask_buying
+  - action: utter_ask_buying
+  - intent: thank
+  - action: utter_thank
+  - intent: ask_name
+  - action: utter_ask_name
+  - intent: bye
+  - action: utter_bye
+
+- story: sample18
+  steps:
+  - intent: ask_product
+  - action: utter_ask_product
+  - intent: complain
+  - action: utter_complain
+
+- story: sample19
+  steps:
+  - intent: ask_payment
+  - action: utter_ask_payment
+  - intent: ask_payment
+  - action: utter_ask_payment
+  - intent: ask_name
+  - action: utter_ask_name
+
+- story: sample20
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_payment
+  - action: utter_ask_payment
+  - intent: ask_shipping
+  - action: utter_ask_shipping
+  - intent: ask_func_list
+  - action: utter_ask_func_list
+
+- story: sample21
+  steps:
+  - intent: complain
+  - action: utter_complain
+
+- story: sample22
+  steps:
+  - intent: complain
+  - action: utter_complain
+
+- story: sample23
+  steps:
+  - intent: ask_payment
+  - action: utter_ask_payment
+  - intent: ask_buying
+  - action: utter_ask_buying
+  - intent: ask_name
+  - action: utter_ask_name
+  - intent: ask_payment
+  - action: utter_ask_payment
+
+- story: sample24
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: greet
+  - action: utter_greet
+  - intent: complain
+  - action: utter_complain
+
+

@@ -1,13 +1,27 @@
 version: "3.1"
 # Những câu mình nói và chú ý đến entity nhé
 nlu:
-- intent: give_name
+- synonym: Shop
   examples: |
-    - [Anh](cust_sex) là [Long](cust_name)
-    - [Chị](cust_sex) là [Đô](cust_name)
-    - [Em](cust_sex) là [Mai](cust_name)
-    - [Cô](cust_sex) [Phương](cust_name)
-    - [Chú](cust_sex) [Tùng](cust_name)
+    - Cửa hàng
+    - Chi nhánh
+    - Bên bán
+
+- synonym: laptop
+  examples: |
+    - máy tính xách tay
+
+- synonym: giao hàng
+  examples: |
+    - ship
+    - ship hàng
+    - vận chuyển
+
+- synonym: thanh toán
+  examples: |
+    - giao dịch
+    - trả tiền
+    - giả tiền
 
 - intent: greet
   examples: |
@@ -26,22 +40,21 @@ nlu:
     - chào
     - hi
     - có ai ở đây không?
+    - Xin chào tôi Long
+    - Tôi là Đô
+    - Xin chào, Mai nè
+    - Tôi Long
+    - Xin chào tôi là Phương, bạn giúp tôi với
+    - Bạn có thể giúp Tùng không
 
 - intent: bye
   examples: |
-    - tạm biệt
-    - chào tạm biệt
-    - chào tạm biệt em
-    - tạm biệt em
-    - tạm biệt em nhé
-
+    - Bái bai
+    - Tạm biệt nha
+    - Tạm biệt
 
 - intent: thank
   examples: |
-    - chuẩn
-    - hay
-    - siêu
-    - tuyệt
     - cám ơn
     - thanks
     - thank you
@@ -64,31 +77,7 @@ nlu:
     - cho mình biết bạn làm được gì nhé
     - bạn hữu dụng như thế nào
     - bạn có ích trong những việc gì
-    - lĩnh vực gì bạn giỏi nhất
-    - mình tò mò về những việc bạn làm được
-    - chẳng biết bạn làm được gì
-    - bạn tệ nhất trong việc gì
-    - bạn biết được những lĩnh vực gì
-    - bạn giỏi hỗ trợ nhất trong lĩnh vực gì
-    - kể cho mình biết những việc bạn có thể làm được nhé
-    - nói cho mình về những việc bạn giúp được mình
-    - bạn giúp được mình gì nào
-    - bạn có thể làm gì
-    - em giúp được gì
-    - em làm được gì
-    - mày biết làm gì
-    - em biết làm gì
-    - bạn biết làm gì
-    - biết làm gì
-    - làm được gì
-    - có làm được gì
-    - có làm được trò gì
-    - giúp giúp cái gì
-    - biết gì mà nói
-    - làm được gì
-    - giúp được gì
-    - mày làm được gì
-    - có biết gì
+
 
 - intent: ask_name
   examples: |
@@ -99,23 +88,431 @@ nlu:
     - tên của bạn là gì
     - tên của chị là gì
     - tên của anh là gì
-    - cho mình hỏi tên nhé
-    - mình muốn biết tên bạn
-    - mình muốn tiện xưng hộ hơn, cho mình biết tên nhé
-    - để tiện xưng hộ thì tên bạn là gì
-    - cho em xin tên của anh ạ
-    - cho em xin tên của chị ạ
-    - được biết tên bạn thì tốt nhỉ
-    - vui lòng cho mình biết tên nhé
-    - xin phép hỏi tên của bạn
-    - vậy thì tên bạn là gì
-    - tên bạn trong tiếng việt là gì
-    - bạn có vui lòng cho mình biết tên được không
-    - chúng ta nên biết tên nhau nhỉ?
-    - em tên là gì thế
-    - tên em là gì
-    - tên em
-    - tên bạn
-    - bạn tên là gì
-    - bạn tên gì thế
-    - em tên gì
+    - Ai thế
+    - Bạn là ai
+    - Bạn là gì
+    - Ai đó
+    - Có ai không
+
+- intent: complain
+  examples: |
+    - Sẩm phẩn quá tệ
+    - Chất lượng quá kém
+    - Shop tồi
+    - Cửa hàng bán hàng quá kém
+    - Sảm phẩm không xứng đáng
+    - Sao đắt thế
+    - Bán quá đắt
+    - Sản phẩm này dùng chán quá
+    - Dùng không thích gì cả
+    - Tôi k thích sản phẩm này
+
+- intent: ask_payment
+  examples: |
+    - Em Thanh toán như nào
+    - Em Giao dịch như nào
+    - Em Trả tiền như nào
+    - Mình Thanh toán như nào
+    - Mình Giao dịch như nào
+    - Mình Trả tiền như nào
+    - Tôi Thanh toán như nào
+    - Tôi Giao dịch như nào
+    - Tôi Trả tiền như nào
+    - Anh Thanh toán như nào
+    - Anh Giao dịch như nào
+    - Anh Trả tiền như nào
+    - Chị Thanh toán như nào
+    - Chị Giao dịch như nào
+    - Chị Trả tiền như nào
+    - Hình thức Thanh toán như nào
+    - Hình thức Giao dịch như nào
+    - Hình thức Trả tiền như nào
+    - Trả tiền mặt được không
+    - Thanh toán bằng thẻ có được không
+
+- intent: ask_shipping
+  examples: |
+    - Tôi sẽ nhận hàng như nào
+    - Làm thế nào thì tôi nhận được hàng
+    - Shop chuyển hàng như nào
+    - Hình thức vận chuyển như nào thế shop
+    - Ship như nào thế shop
+    - Có ship hàng toàn quốc không
+    - có vận chuyển toàn quốc không
+    - shop có giao hàng không
+    - Tôi nhận hàng tại nhà có được không
+
+- intent: ask_buying
+  examples: |
+    - Làm thế nào để mua hàng
+    - Tôi mua hàng như nào
+    - Đặt hàng như nào thế
+    - Tôi phải đặt hàng như nào
+    - Làm sao để mua hàng trên web
+    - Tôi ấn vào đâu để mua hàng nhỉ
+    - Bạn hỗ trợ tôi tiến hành đặt hàng với
+
+- intent: ask_product
+  examples: |
+    - Giới thiệu mình sản phẩm [Bàn phím](product) [HP](brand)
+    - Giới thiệu mình sản phẩm [Chuột](product) [Asus](brand)
+    - Giới thiệu mình sản phẩm [Laptop](product) [Dell](brand)
+    - Giới thiệu mình sản phẩm [Máy tính xách tay](product)
+    - Giới thiệu mình sản phẩm [PC](product)
+    - Giới thiệu mình sản phẩm [Màn Hình](product)
+    -Bên shop có những [Bàn phím](product) nào
+    -Bên shop có những [Chuột](product) nào
+    -Bên shop có những [Laptop](product) nào
+    -Bên shop có những [Máy tính xách tay](product) nào
+    -Bên shop có những [PC](product) nào
+    -Bên shop có những [Màn Hình](product) nào
+    - Mình cần thông tin về [Bàn phím](product)
+    - Mình cần thông tin về [Chuột](product) [Logitech](brand)
+    - Mình cần thông tin về [Laptop](product) [Acer](brand)
+    - Mình cần thông tin về [Máy tính xách tay](product)
+    - Mình cần thông tin về [PC](product)
+    - Mình cần thông tin về [Màn Hình](product) [LG](brand)
+    - Mình muốn mua [Bàn phím](product) [Lenovo](brand)
+    - Mình muốn mua [Chuột](product)
+    - Mình muốn mua [Laptop](product)
+    - Mình muốn mua [Máy tính xách tay](product)
+    - Mình muốn mua [PC](product)
+    - Mình muốn mua [Màn Hình](product) [Lenovo](brand)
+    - Bạn tư vấn cho mình một vài mẫu [Bàn phím](product)
+    - Bạn tư vấn cho mình một vài mẫu [Chuột](product)
+    - Bạn tư vấn cho mình một vài mẫu [Laptop](product)
+    - Bạn tư vấn cho mình một vài mẫu [Máy tính xách tay](product)
+    - Bạn tư vấn cho mình một vài mẫu [PC](product)
+    - Bạn tư vấn cho mình một vài mẫu [Màn Hình](product)
+    - Có Bàn phím không shop
+    - Có Chuột không shop
+    - Có Laptop không shop
+    - Có Máy tính xách tay không shop
+    - Có PC không shop
+    - Có Màn Hình không shop
+    - Có [Bàn phím](product) không bạn
+    - Có [Chuột](product) không bạn
+    - Có [Laptop](product) không bạn
+    - Có [Máy tính xách tay](product) không bạn
+    - Có [PC](product) không bạn
+    - Có [Màn Hình](product) không bạn
+    - Mình đang phân vân không biết mua [Bàn phím](product) nào
+    - Mình đang phân vân không biết mua [Chuột](product) nào
+    - Mình đang phân vân không biết mua [Laptop](product) nào
+    - Mình đang phân vân không biết mua [Máy tính xách tay](product) nào
+    - Mình đang phân vân không biết mua [PC](product) nào
+    - Mình đang phân vân không biết mua [Màn Hình](product) nào
+    - Giới thiệu mình sản phẩm [Bàn phím](product) [LG](brand)
+    - Giới thiệu mình sản phẩm [Bàn phím](product) [Lenovo](brand)
+    - Giới thiệu mình sản phẩm [Bàn phím](product) [Logitech](brand)
+    - Giới thiệu mình sản phẩm [Bàn phím](product) [Gigabit](brand)
+    - Giới thiệu mình sản phẩm [Bàn phím](product) [Acer](brand)
+    - Giới thiệu mình sản phẩm [Bàn phím](product) [Asus](brand)
+    - Giới thiệu mình sản phẩm [Chuột](product) [LG](brand)
+    - Giới thiệu mình sản phẩm [Chuột](product) [Lenovo](brand)
+    - Giới thiệu mình sản phẩm [Chuột](product) [Logitech](brand)
+    - Giới thiệu mình sản phẩm [Chuột](product) [Gigabit](brand)
+    - Giới thiệu mình sản phẩm [Chuột](product) [Acer](brand)
+    - Giới thiệu mình sản phẩm [Chuột](product) [Asus](brand)
+    - Giới thiệu mình sản phẩm [Laptop](product) [LG](brand)
+    - Giới thiệu mình sản phẩm [Laptop](product) [Lenovo](brand)
+    - Giới thiệu mình sản phẩm [Laptop](product) [Logitech](brand)
+    - Giới thiệu mình sản phẩm [Laptop](product) [Gigabit](brand)
+    - Giới thiệu mình sản phẩm [Laptop](product) [Acer](brand)
+    - Giới thiệu mình sản phẩm [Laptop](product) [Asus](brand)
+    - Giới thiệu mình sản phẩm [Máy tính xách tay](product) [LG](brand)
+    - Giới thiệu mình sản phẩm [Máy tính xách tay](product) [Lenovo](brand)
+    - Giới thiệu mình sản phẩm [Máy tính xách tay](product) [Logitech](brand)
+    - Giới thiệu mình sản phẩm [Máy tính xách tay](product) [Gigabit](brand)
+    - Giới thiệu mình sản phẩm [Máy tính xách tay](product) [Acer](brand)
+    - Giới thiệu mình sản phẩm [Máy tính xách tay](product) [Asus](brand)
+    - Giới thiệu mình sản phẩm [PC](product) [LG](brand)
+    - Giới thiệu mình sản phẩm [PC](product) [Lenovo](brand)
+    - Giới thiệu mình sản phẩm [PC](product) [Logitech](brand)
+    - Giới thiệu mình sản phẩm [PC](product) [Gigabit](brand)
+    - Giới thiệu mình sản phẩm [PC](product) [Acer](brand)
+    - Giới thiệu mình sản phẩm [PC](product) [Asus](brand)
+    - Giới thiệu mình sản phẩm [Màn Hình](product) [LG](brand)
+    - Giới thiệu mình sản phẩm [Màn Hình](product) [Lenovo](brand)
+    - Giới thiệu mình sản phẩm [Màn Hình](product) [Logitech](brand)
+    - Giới thiệu mình sản phẩm [Màn Hình](product) [Gigabit](brand)
+    - Giới thiệu mình sản phẩm [Màn Hình](product) [Acer](brand)
+    - Giới thiệu mình sản phẩm [Màn Hình](product) [Asus](brand)
+    -Bên shop có những [Bàn phím](product) [LG](brand) nào
+    -Bên shop có những [Bàn phím](product) [Lenovo](brand) nào
+    -Bên shop có những [Bàn phím](product) [Logitech](brand) nào
+    -Bên shop có những [Bàn phím](product) [Gigabit](brand) nào
+    -Bên shop có những [Bàn phím](product) [Acer](brand) nào
+    -Bên shop có những [Bàn phím](product) [Asus](brand) nào
+    -Bên shop có những [Chuột](product) [LG](brand) nào
+    -Bên shop có những [Chuột](product) [Lenovo](brand) nào
+    -Bên shop có những [Chuột](product) [Logitech](brand) nào
+    -Bên shop có những [Chuột](product) [Gigabit](brand) nào
+    -Bên shop có những [Chuột](product) [Acer](brand) nào
+    -Bên shop có những [Chuột](product) [Asus](brand) nào
+    -Bên shop có những [Laptop](product) [LG](brand) nào
+    -Bên shop có những [Laptop](product) [Lenovo](brand) nào
+    -Bên shop có những [Laptop](product) [Logitech](brand) nào
+    -Bên shop có những [Laptop](product) [Gigabit](brand) nào
+    -Bên shop có những [Laptop](product) [Acer](brand) nào
+    -Bên shop có những [Laptop](product) [Asus](brand) nào
+    -Bên shop có những [Máy tính xách tay](product) [LG](brand) nào
+    -Bên shop có những [Máy tính xách tay](product) [Lenovo](brand) nào
+    -Bên shop có những [Máy tính xách tay](product) [Logitech](brand) nào
+    -Bên shop có những [Máy tính xách tay](product) [Gigabit](brand) nào
+    -Bên shop có những [Máy tính xách tay](product) [Acer](brand) nào
+    -Bên shop có những [Máy tính xách tay](product) [Asus](brand) nào
+    -Bên shop có những [PC](product) [LG](brand) nào
+    -Bên shop có những [PC](product) [Lenovo](brand) nào
+    -Bên shop có những [PC](product) [Logitech](brand) nào
+    -Bên shop có những [PC](product) [Gigabit](brand) nào
+    -Bên shop có những [PC](product) [Acer](brand) nào
+    -Bên shop có những [PC](product) [Asus](brand) nào
+    -Bên shop có những [Màn Hình](product) [LG](brand) nào
+    -Bên shop có những [Màn Hình](product) [Lenovo](brand) nào
+    -Bên shop có những [Màn Hình](product) [Logitech](brand) nào
+    -Bên shop có những [Màn Hình](product) [Gigabit](brand) nào
+    -Bên shop có những [Màn Hình](product) [Acer](brand) nào
+    -Bên shop có những [Màn Hình](product) [Asus](brand) nào
+    - Mình cần thông tin về [Bàn phím](product) [LG](brand)
+    - Mình cần thông tin về [Bàn phím](product) [Lenovo](brand)
+    - Mình cần thông tin về [Bàn phím](product) [Logitech](brand)
+    - Mình cần thông tin về [Bàn phím](product) [Gigabit](brand)
+    - Mình cần thông tin về [Bàn phím](product) [Acer](brand)
+    - Mình cần thông tin về [Bàn phím](product) [Asus](brand)
+    - Mình cần thông tin về [Chuột](product) [LG](brand)
+    - Mình cần thông tin về [Chuột](product) [Lenovo](brand)
+    - Mình cần thông tin về [Chuột](product) [Logitech](brand)
+    - Mình cần thông tin về [Chuột](product) [Gigabit](brand)
+    - Mình cần thông tin về [Chuột](product) [Acer](brand)
+    - Mình cần thông tin về [Chuột](product) [Asus](brand)
+    - Mình cần thông tin về [Laptop](product) [LG](brand)
+    - Mình cần thông tin về [Laptop](product) [Lenovo](brand)
+    - Mình cần thông tin về [Laptop](product) [Logitech](brand)
+    - Mình cần thông tin về [Laptop](product) [Gigabit](brand)
+    - Mình cần thông tin về [Laptop](product) [Acer](brand)
+    - Mình cần thông tin về [Laptop](product) [Asus](brand)
+    - Mình cần thông tin về [Máy tính xách tay](product) [LG](brand)
+    - Mình cần thông tin về [Máy tính xách tay](product) [Lenovo](brand)
+    - Mình cần thông tin về [Máy tính xách tay](product) [Logitech](brand)
+    - Mình cần thông tin về [Máy tính xách tay](product) [Gigabit](brand)
+    - Mình cần thông tin về [Máy tính xách tay](product) [Acer](brand)
+    - Mình cần thông tin về [Máy tính xách tay](product) [Asus](brand)
+    - Mình cần thông tin về [PC](product) [LG](brand)
+    - Mình cần thông tin về [PC](product) [Lenovo](brand)
+    - Mình cần thông tin về [PC](product) [Logitech](brand)
+    - Mình cần thông tin về [PC](product) [Gigabit](brand)
+    - Mình cần thông tin về [PC](product) [Acer](brand)
+    - Mình cần thông tin về [PC](product) [Asus](brand)
+    - Mình cần thông tin về [Màn Hình](product) [LG](brand)
+    - Mình cần thông tin về [Màn Hình](product) [Lenovo](brand)
+    - Mình cần thông tin về [Màn Hình](product) [Logitech](brand)
+    - Mình cần thông tin về [Màn Hình](product) [Gigabit](brand)
+    - Mình cần thông tin về [Màn Hình](product) [Acer](brand)
+    - Mình cần thông tin về [Màn Hình](product) [Asus](brand)
+    - Mình muốn mua [Bàn phím](product) [LG](brand)
+    - Mình muốn mua [Bàn phím](product) [Lenovo](brand)
+    - Mình muốn mua [Bàn phím](product) [Logitech](brand)
+    - Mình muốn mua [Bàn phím](product) [Gigabit](brand)
+    - Mình muốn mua [Bàn phím](product) [Acer](brand)
+    - Mình muốn mua [Bàn phím](product) [Asus](brand)
+    - Mình muốn mua [Chuột](product) [LG](brand)
+    - Mình muốn mua [Chuột](product) [Lenovo](brand)
+    - Mình muốn mua [Chuột](product) [Logitech](brand)
+    - Mình muốn mua [Chuột](product) [Gigabit](brand)
+    - Mình muốn mua [Chuột](product) [Acer](brand)
+    - Mình muốn mua [Chuột](product) [Asus](brand)
+    - Mình muốn mua [Laptop](product) [LG](brand)
+    - Mình muốn mua [Laptop](product) [Lenovo](brand)
+    - Mình muốn mua [Laptop](product) [Logitech](brand)
+    - Mình muốn mua [Laptop](product) [Gigabit](brand)
+    - Mình muốn mua [Laptop](product) [Acer](brand)
+    - Mình muốn mua [Laptop](product) [Asus](brand)
+    - Mình muốn mua [Máy tính xách tay](product) [LG](brand)
+    - Mình muốn mua [Máy tính xách tay](product) [Lenovo](brand)
+    - Mình muốn mua [Máy tính xách tay](product) [Logitech](brand)
+    - Mình muốn mua [Máy tính xách tay](product) [Gigabit](brand)
+    - Mình muốn mua [Máy tính xách tay](product) [Acer](brand)
+    - Mình muốn mua [Máy tính xách tay](product) [Asus](brand)
+    - Mình muốn mua [PC](product) [LG](brand)
+    - Mình muốn mua [PC](product) [Lenovo](brand)
+    - Mình muốn mua [PC](product) [Logitech](brand)
+    - Mình muốn mua [PC](product) [Gigabit](brand)
+    - Mình muốn mua [PC](product) [Acer](brand)
+    - Mình muốn mua [PC](product) [Asus](brand)
+    - Mình muốn mua [Màn Hình](product) [LG](brand)
+    - Mình muốn mua [Màn Hình](product) [Lenovo](brand)
+    - Mình muốn mua [Màn Hình](product) [Logitech](brand)
+    - Mình muốn mua [Màn Hình](product) [Gigabit](brand)
+    - Mình muốn mua [Màn Hình](product) [Acer](brand)
+    - Mình muốn mua [Màn Hình](product) [Asus](brand)
+    - Bạn tư vấn cho mình một vài mẫu [Bàn phím](product) [LG](brand)
+    - Bạn tư vấn cho mình một vài mẫu [Bàn phím](product) [Lenovo](brand)
+    - Bạn tư vấn cho mình một vài mẫu [Bàn phím](product) [Logitech](brand)
+    - Bạn tư vấn cho mình một vài mẫu [Bàn phím](product) [Gigabit](brand)
+    - Bạn tư vấn cho mình một vài mẫu [Bàn phím](product) [Acer](brand)
+    - Bạn tư vấn cho mình một vài mẫu [Bàn phím](product) [Asus](brand)
+    - Bạn tư vấn cho mình một vài mẫu [Chuột](product) [LG](brand)
+    - Bạn tư vấn cho mình một vài mẫu [Chuột](product) [Lenovo](brand)
+    - Bạn tư vấn cho mình một vài mẫu [Chuột](product) [Logitech](brand)
+    - Bạn tư vấn cho mình một vài mẫu [Chuột](product) [Gigabit](brand)
+    - Bạn tư vấn cho mình một vài mẫu [Chuột](product) [Acer](brand)
+    - Bạn tư vấn cho mình một vài mẫu [Chuột](product) [Asus](brand)
+    - Bạn tư vấn cho mình một vài mẫu [Laptop](product) [LG](brand)
+    - Bạn tư vấn cho mình một vài mẫu [Laptop](product) [Lenovo](brand)
+    - Bạn tư vấn cho mình một vài mẫu [Laptop](product) [Logitech](brand)
+    - Bạn tư vấn cho mình một vài mẫu [Laptop](product) [Gigabit](brand)
+    - Bạn tư vấn cho mình một vài mẫu [Laptop](product) [Acer](brand)
+    - Bạn tư vấn cho mình một vài mẫu [Laptop](product) [Asus](brand)
+    - Bạn tư vấn cho mình một vài mẫu [Máy tính xách tay](product) [LG](brand)
+    - Bạn tư vấn cho mình một vài mẫu [Máy tính xách tay](product) [Lenovo](brand)
+    - Bạn tư vấn cho mình một vài mẫu [Máy tính xách tay](product) [Logitech](brand)
+    - Bạn tư vấn cho mình một vài mẫu [Máy tính xách tay](product) [Gigabit](brand)
+    - Bạn tư vấn cho mình một vài mẫu [Máy tính xách tay](product) [Acer](brand)
+    - Bạn tư vấn cho mình một vài mẫu [Máy tính xách tay](product) [Asus](brand)
+    - Bạn tư vấn cho mình một vài mẫu [PC](product) [LG](brand)
+    - Bạn tư vấn cho mình một vài mẫu [PC](product) [Lenovo](brand)
+    - Bạn tư vấn cho mình một vài mẫu [PC](product) [Logitech](brand)
+    - Bạn tư vấn cho mình một vài mẫu [PC](product) [Gigabit](brand)
+    - Bạn tư vấn cho mình một vài mẫu [PC](product) [Acer](brand)
+    - Bạn tư vấn cho mình một vài mẫu [PC](product) [Asus](brand)
+    - Bạn tư vấn cho mình một vài mẫu [Màn Hình](product) [LG](brand)
+    - Bạn tư vấn cho mình một vài mẫu [Màn Hình](product) [Lenovo](brand)
+    - Bạn tư vấn cho mình một vài mẫu [Màn Hình](product) [Logitech](brand)
+    - Bạn tư vấn cho mình một vài mẫu [Màn Hình](product) [Gigabit](brand)
+    - Bạn tư vấn cho mình một vài mẫu [Màn Hình](product) [Acer](brand)
+    - Bạn tư vấn cho mình một vài mẫu [Màn Hình](product) [Asus](brand)
+    - Có [Bàn phím](product) [LG](brand) không shop
+    - Có [Bàn phím](product) [Lenovo](brand) không shop
+    - Có [Bàn phím](product) [Logitech](brand) không shop
+    - Có [Bàn phím](product) [Gigabit](brand) không shop
+    - Có [Bàn phím](product) [Acer](brand) không shop
+    - Có [Bàn phím](product) [Asus](brand) không shop
+    - Có [Chuột](product) [LG](brand) không shop
+    - Có [Chuột](product) [Lenovo](brand) không shop
+    - Có [Chuột](product) [Logitech](brand) không shop
+    - Có [Chuột](product) [Gigabit](brand) không shop
+    - Có [Chuột](product) [Acer](brand) không shop
+    - Có [Chuột](product) [Asus](brand) không shop
+    - Có [Laptop](product) [LG](brand) không shop
+    - Có [Laptop](product) [Lenovo](brand) không shop
+    - Có [Laptop](product) [Logitech](brand) không shop
+    - Có [Laptop](product) [Gigabit](brand) không shop
+    - Có [Laptop](product) [Acer](brand) không shop
+    - Có [Laptop](product) [Asus](brand) không shop
+    - Có [Máy tính xách tay](product) [LG](brand) không shop
+    - Có [Máy tính xách tay](product) [Lenovo](brand) không shop
+    - Có [Máy tính xách tay](product) [Logitech](brand) không shop
+    - Có [Máy tính xách tay](product) [Gigabit](brand) không shop
+    - Có [Máy tính xách tay](product) [Acer](brand) không shop
+    - Có [Máy tính xách tay](product) [Asus](brand) không shop
+    - Có [PC](product) [LG](brand) không shop
+    - Có [PC](product) [Lenovo](brand) không shop
+    - Có [PC](product) [Logitech](brand) không shop
+    - Có [PC](product) [Gigabit](brand) không shop
+    - Có [PC](product) [Acer](brand) không shop
+    - Có [PC](product) [Asus](brand) không shop
+    - Có [Màn Hình](product) [LG](brand) không shop
+    - Có [Màn Hình](product) [Lenovo](brand) không shop
+    - Có [Màn Hình](product) [Logitech](brand) không shop
+    - Có [Màn Hình](product) [Gigabit](brand) không shop
+    - Có [Màn Hình](product) [Acer](brand) không shop
+    - Có [Màn Hình](product) [Asus](brand) không shop
+    - Có [Bàn phím](product) [LG](brand) không bạn
+    - Có [Bàn phím](product) [Lenovo](brand) không bạn
+    - Có [Bàn phím](product) [Logitech](brand) không bạn
+    - Có [Bàn phím](product) [Gigabit](brand) không bạn
+    - Có [Bàn phím](product) [Acer](brand) không bạn
+    - Có [Bàn phím](product) [Asus](brand) không bạn
+    - Có [Chuột](product) [LG](brand) không bạn
+    - Có [Chuột](product) [Lenovo](brand) không bạn
+    - Có [Chuột](product) [Logitech](brand) không bạn
+    - Có [Chuột](product) [Gigabit](brand) không bạn
+    - Có [Chuột](product) [Acer](brand) không bạn
+    - Có [Chuột](product) [Asus](brand) không bạn
+    - Có [Laptop](product) [LG](brand) không bạn
+    - Có [Laptop](product) [Lenovo](brand) không bạn
+    - Có [Laptop](product) [Logitech](brand) không bạn
+    - Có [Laptop](product) [Gigabit](brand) không bạn
+    - Có [Laptop](product) [Acer](brand) không bạn
+    - Có [Laptop](product) [Asus](brand) không bạn
+    - Có [Máy tính xách tay](product) [LG](brand) không bạn
+    - Có [Máy tính xách tay](product) [Lenovo](brand) không bạn
+    - Có [Máy tính xách tay](product) [Logitech](brand) không bạn
+    - Có [Máy tính xách tay](product) [Gigabit](brand) không bạn
+    - Có [Máy tính xách tay](product) [Acer](brand) không bạn
+    - Có [Máy tính xách tay](product) [Asus](brand) không bạn
+    - Có [PC](product) [LG](brand) không bạn
+    - Có [PC](product) [Lenovo](brand) không bạn
+    - Có [PC](product) [Logitech](brand) không bạn
+    - Có [PC](product) [Gigabit](brand) không bạn
+    - Có [PC](product) [Acer](brand) không bạn
+    - Có [PC](product) [Asus](brand) không bạn
+    - Có [Màn Hình](product) [LG](brand) không bạn
+    - Có [Màn Hình](product) [Lenovo](brand) không bạn
+    - Có [Màn Hình](product) [Logitech](brand) không bạn
+    - Có [Màn Hình](product) [Gigabit](brand) không bạn
+    - Có [Màn Hình](product) [Acer](brand) không bạn
+    - Có [Màn Hình](product) [Asus](brand) không bạn
+    - Mình đang phân vân không biết mua [Bàn phím](product) [LG](brand) nào
+    - Mình đang phân vân không biết mua [Bàn phím](product) [Lenovo](brand) nào
+    - Mình đang phân vân không biết mua [Bàn phím](product) [Logitech](brand) nào
+    - Mình đang phân vân không biết mua [Bàn phím](product) [Gigabit](brand) nào
+    - Mình đang phân vân không biết mua [Bàn phím](product) [Acer](brand) nào
+    - Mình đang phân vân không biết mua [Bàn phím](product) [Asus](brand) nào
+    - Mình đang phân vân không biết mua [Chuột](product) [LG](brand) nào
+    - Mình đang phân vân không biết mua [Chuột](product) [Lenovo](brand) nào
+    - Mình đang phân vân không biết mua [Chuột](product) [Logitech](brand) nào
+    - Mình đang phân vân không biết mua [Chuột](product) [Gigabit](brand) nào
+    - Mình đang phân vân không biết mua [Chuột](product) [Acer](brand) nào
+    - Mình đang phân vân không biết mua [Chuột](product) [Asus](brand) nào
+    - Mình đang phân vân không biết mua [Laptop](product) [LG](brand) nào
+    - Mình đang phân vân không biết mua [Laptop](product) [Lenovo](brand) nào
+    - Mình đang phân vân không biết mua [Laptop](product) [Logitech](brand) nào
+    - Mình đang phân vân không biết mua [Laptop](product) [Gigabit](brand) nào
+    - Mình đang phân vân không biết mua [Laptop](product) [Acer](brand) nào
+    - Mình đang phân vân không biết mua [Laptop](product) [Asus](brand) nào
+    - Mình đang phân vân không biết mua [Máy tính xách tay](product) [LG](brand) nào
+    - Mình đang phân vân không biết mua [Máy tính xách tay](product) [Lenovo](brand) nào
+    - Mình đang phân vân không biết mua [Máy tính xách tay](product) [Logitech](brand) nào
+    - Mình đang phân vân không biết mua [Máy tính xách tay](product) [Gigabit](brand) nào
+    - Mình đang phân vân không biết mua [Máy tính xách tay](product) [Acer](brand) nào
+    - Mình đang phân vân không biết mua [Máy tính xách tay](product) [Asus](brand) nào
+    - Mình đang phân vân không biết mua [PC](product) [LG](brand) nào
+    - Mình đang phân vân không biết mua [PC](product) [Lenovo](brand) nào
+    - Mình đang phân vân không biết mua [PC](product) [Logitech](brand) nào
+    - Mình đang phân vân không biết mua [PC](product) [Gigabit](brand) nào
+    - Mình đang phân vân không biết mua [PC](product) [Acer](brand) nào
+    - Mình đang phân vân không biết mua [PC](product) [Asus](brand) nào
+    - Mình đang phân vân không biết mua [Màn Hình](product) [LG](brand) nào
+    - Mình đang phân vân không biết mua [Màn Hình](product) [Lenovo](brand) nào
+    - Mình đang phân vân không biết mua [Màn Hình](product) [Logitech](brand) nào
+    - Mình đang phân vân không biết mua [Màn Hình](product) [Gigabit](brand) nào
+    - Mình đang phân vân không biết mua [Màn Hình](product) [Acer](brand) nào
+    - Mình đang phân vân không biết mua [Màn Hình](product) [Asus](brand) nào
+    - Shop có [Tivi](product) không
+    - Shop có kinh doanh [Tủ lạnh](product) không
+    - Shop có kinh doanh [máy giặt](product) không
+    - Shop có bán [Điều hòa](product)
+    - Shop có kinh doanh [bóng đèn](product) không
+    - Shop có bán [xà bông](product)
+    - Shop có kinh doanh [bếp](product) không
+    - Shop có bán [xe máy](product)
+    - Shop có [xe đạp](product) không
+    - Shop có [lò vi sóng](product) không
+    - Mình muốn mua [quạt](product)
+    - Shop có [giày](product) không
+    - Shop có kinh doanh [dép](product) không
+    - Shop có kinh doanh [quần áo](product) không
+    - Mình muốn mua [điện thoại](product)
+    - Mình muốn mua [máy ảnh](product)
+    - Shop có kinh doanh [máy inBếp ga](product) không
+    - Shop có [Bếp điện](product) không
+    - Mình muốn mua [xe đạp](product)
+    - Mình muốn mua [điện thoại](product)
+    - Shop có kinh doanh [xoong](product) không
+    - Shop có kinh doanh [nồi](product) không
+    - Shop có bán [chảo](product)
+    - Shop có [bảng đen](product) không
+    - Mình muốn mua [máy lọc nước](product)
+

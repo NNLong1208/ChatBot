@@ -1,44 +1,79 @@
 intents:
- - give_name
  - greet
- - thank
  - bye
+ - thank
  - ask_func_list
  - ask_name
- - utter_greet_with_name
+ - complain
+ - ask_no_product
+ - ask_payment
+ - ask_shipping
+ - ask_buying
+ - ask_product
+
 
 entities:
- - cust_sex
- - cust_name
-
+ - product
+ - brand
 slots:
-  cust_sex:
+  product:
     type: text
     mappings:
     - type: from_entity
-      entity: cust_sex
-  cust_name:
-    type: text
-    mappings:
+      entity: product
+  brand:
+   type: text
+   mappings:
     - type: from_entity
-      entity: cust_name
-
+      entity: brand
 # Những câu nói con bot có thể nói, đặt tên theo format ulter_<tên intent> có thể có nhiều hơn 1 câu
 responses:
- utter_greet_with_name:
-  - text: "Kính chào {cust_sex} {cust_name}. ABC Shop có thể giúp gì được {cust_sex} {cust_name} ạ?"
  utter_greet:
   - text: "Kính chào Quý khách!"
+  - text: "Shop xin chào quý khách"
+  - text: "Quý khách cần em giúp gì ạ"
+  - text: "Quý khách đang muốn mua gì để em tư vấn nào"
+  - text: "Chào mừng quý khách đến với gian hàng của em"
  utter_bye:
   - text: "Kính chào tạm biệt và mong sớm gặp lại quý khách!"
   - text: "Kính chào tạm biệt và chúc quý khách một ngày tốt lành!"
+  - text: "Bái bai quý khách"
+  - text: "Chúc quý khách có một buổi mua sắm vui vẻ"
+  - text: "Rất vui được phục vụ quý khách, cần tư vấn gì cứ nhắn cho em ạ"
+  - text: "Shop xin cảm ơn nha"
+  - text: "Hẹn gặp lại quý khác trong lần mua sắm tiếp theo"
  utter_thank:
-  - text: "Cảm ơn quý khách quá khen ah!"
+  - text: "Dạ đây là nghĩa vụ của em mà"
   - text: "Dạ không có gì, đó là trách nhiệm của em mà!"
- utter_func_list:
-  - text: "Em có thể làm được rất nhiều thứ: hát, đọc thơ, đọc chuyện...nhưng giờ em chỉ chat thôi!"
- utter_ask_name:
-  - text: "Em họ Bank, tên Bot! Người ta hay gọi em là Bank Bot thông minh xinh đẹp giỏi giang nhất vũ trụ ạ! Quý khách cần trợ giúp gì ạ?"
-  - text: "Dạ thưa. Tên Tiếng Việt của em là Trợ lý ảo Ngân hàng nhưng em thích gọi bằng tên Tiếng Anh là Bank Bot cho nó Tây!"
+  - text: "Em cảm ơn nha"
+ utter_ask_func_list:
+  - text: "Em có thể tư vấn cho khách hàng ạ"
+  - text: "Em có thể tìm kiếm sản phẩm cho khách hàng nè"
+  - text: "Em làm được nhiều thứ lắm. nhưng mà em ở đây như một cô saler 'chinh chẹp' phục vụ quý khách nè"
  utter_unclear:
-  - text: "Thưa quý khách, hiện tại tôi chưa hiểu được yêu cầu của Quý khách. "
+  - text: "Hông biết, hổng có biết"
+ utter_ask_name:
+  - text: "Tui là bot bán hàng được tạo ra bởi nhóm 8 nha"
+  - text: "Tui là bot bán hàng nha"
+ utter_ask_payment:
+  - text: "Anh chị có thể trả tiền mặt này, hoặc vnpay"
+  - text: "Quý khách có thể trả tiền mặt hoặc thanh toán qua vnpay"
+  - text: "Bên em nhận 2 hình thức thanh toán đó là vnpay và tiền mặt nha quý khách"
+ utter_ask_shipping:
+  - text: "Dạ bên em vận chuyển toàn quốc nha đặc biệt khi đủ hóa đơn bên em còn free ship nữa nhé"
+  - text: "Bên em có hình thức ship cod hoặc không nha, quý khách có thể đặt ship nhận hàng rồi mới thanh toán nha"
+ utter_ask_buying:
+  - text: "Đầu tiên anh chị ấn thêm vào giỏ hàng sản phẩm muốn mua xong ấn vô giỏ hàng và thực hiện thanh toán"
+  - text: "Khách hàng có thể ấn vào mua ngay tại sản phẩm rồi tiền hành thanh toán. Hoặc có thể ấn thêm vào giỏ hàng nếu muốn mua nhiều sản phẩm nha"
+ utter_ask_product:
+  - text: "Dạ quý khách vui lòng tham khảo tại <brand/product>"
+  - text: "Em tìm thấy sản phẩm cho anh chị rồi đây anh chị tham khảo tại <brand/product> nhé"
+  - text: "Muốn mua sản phẩm này ư, vô đây nè anh chị oi <brand/product>"
+  - text: "Em đã lục tung cái kho hàng và tìm được cho anh chị rùi nè <brand/product>"
+  - text: "Luôn có tại đây nè <brand/product>"
+  - text: "Muốn mua hàng ư vô đây để mua nè <brand/product>"
+  - text: "Hàng về hàng về <brand/product>"
+ utter_complain:
+  - text: "Dạ shop rất xin lỗi về sản phẩm. Shop sẽ liên lạc để cải thiện"
+  - text: "Shop xin lỗi vì trải nghiệm không tốt về sản phẩm"
+  - text: "Dạ cảm ơn quý khách đã phản hồi, với traỉ nghiệm không tốt này shop sẽ liên lạc với quý khách để khắc phục"
