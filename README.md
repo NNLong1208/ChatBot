@@ -261,7 +261,7 @@ Project Link: [https://github.com/NNLong1208/ChatBot](https://github.com/NNLong1
 <!-- Reference -->
 ## Reference
 
-You can see the code of my website [here](https://github.com/dodh2201/Electronic-Shop)
+You can see the code of my website [here](https://github.com/thanhdat02112001/Eshop)
 
 * [Rasa repo](https://github.com/RasaHQ/rasa)
 
